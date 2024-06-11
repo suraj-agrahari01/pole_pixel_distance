@@ -8,15 +8,26 @@
 6. **custom_pixel_find.py**: This script calculates the pixel distance between two selected files and saves the result in a .txt file.
 
 # Result Overview
-![orginal_img](https://github.com/suraj-agrahari01/pole_pixel_distance/assets/138669672/ff48c0eb-91e1-40f5-91d0-dad6c10fec5c)
-fig : original Image 
-![mask_img_segment](https://github.com/suraj-agrahari01/pole_pixel_distance/assets/138669672/2e7595a5-acd5-4dcc-8152-39f6ad54a903)
-fig : original Image 
-![mask_img](https://github.com/suraj-agrahari01/pole_pixel_distance/assets/138669672/1a1c7d5d-fc7d-4b2d-ad35-75dd691d9cd8)
-fig : Mask Image 
-![detect_img](https://github.com/suraj-agrahari01/pole_pixel_distance/assets/138669672/e94429bb-0f6b-47de-b146-1f5850092f4e)
-fig : Detcted  Image 
-![segment_img](https://github.com/suraj-agrahari01/pole_pixel_distance/assets/138669672/d4495d05-0b95-4e5b-83d6-7f78b7d2e1ed)
-fig : Segmented Image 
-![pixel_distance ](https://github.com/suraj-agrahari01/pole_pixel_distance/assets/138669672/c6750c00-238c-47b9-87c4-4b8a1278b5bb)
-fig : Pixel distance cacluated Image 
+
+
+| ![orginal_img](https://github.com/suraj-agrahari01/pole_pixel_distance/assets/138669672/ff48c0eb-91e1-40f5-91d0-dad6c10fec5c)| 
+|:--:| 
+|  *Fig : Original Image* |
+
+| ![mask_img](https://github.com/suraj-agrahari01/pole_pixel_distance/assets/138669672/1a1c7d5d-fc7d-4b2d-ad35-75dd691d9cd8)| 
+|:--:| 
+|  *Fig : Masked Image* |
+
+| ![detect_img](https://github.com/suraj-agrahari01/pole_pixel_distance/assets/138669672/e94429bb-0f6b-47de-b146-1f5850092f4e)| 
+|:--:| 
+|  *Fig : Detected Image* |
+
+| ![mask_img_segment](https://github.com/suraj-agrahari01/pole_pixel_distance/assets/138669672/2e7595a5-acd5-4dcc-8152-39f6ad54a903)| 
+|:--:| 
+|  *Fig : Segmented Image* |
+
+| ![pixel_distance ](https://github.com/suraj-agrahari01/pole_pixel_distance/assets/138669672/c6750c00-238c-47b9-87c4-4b8a1278b5bb)| 
+|:--:| 
+|  *Fig : Pixel distance calulate Image* |
+
+

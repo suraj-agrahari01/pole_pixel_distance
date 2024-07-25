@@ -1,0 +1,6 @@
+1. load image having Dimensions 3840x2160
+2. letterbox loaded image to 640 x640
+3. run roi function using openCV to select the desired coordinate of letterbox image
+4. save the coordinate value of roi in coordinate.txt file. if it doesn't exist create  
+5. upsample coordinate of the letterbox to the original coordinate of the orignal image
+6. using the original coordinates mask the area expect that in original image by black color 

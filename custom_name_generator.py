@@ -14,62 +14,10 @@ create a custome rename generator python program that works on following algroth
 '''
 
 
-import os
-import shutil
-from datetime import datetime
-import csv
-
-
-def generate_unique_filename(custom_input, counter, original_filename):
-    current_time = datetime.now().strftime("%Y%m%d%H%M%S")
-    filename, extension = os.path.splitext(original_filename)
-    new_filename = f"{custom_input}_{current_time}_{counter}{extension}"
-    return new_filename
-
-
-def rename_files(input_folder, output_folder, custom_input, csv_filename):
-    if not os.path.exists(output_folder):
-        os.makedirs(output_folder)
-
-    counter = 1
-    with open(csv_filename, 'w', newline='') as csvfile:
-        csv_writer = csv.writer(csvfile)
-        csv_writer.writerow(['Original Name', 'Final Name',
-                            'Original Location', 'Final Location'])
-
-        for filename in os.listdir(input_folder):
-            input_filepath = os.path.join(input_folder, filename)
-            if os.path.isfile(input_filepath):
-                new_filename = generate_unique_filename(
-                    custom_input, counter, filename)
-                output_filepath = os.path.join(output_folder, new_filename)
-                shutil.copyfile(input_filepath, output_filepath)
-                print(f"Renamed: {filename} -> {new_filename}")
-                csv_writer.writerow(
-                    [filename, new_filename, input_filepath, output_filepath])
-                counter += 1
-
-    print(f"All files renamed and copied to {output_folder}")
-    print(f"CSV log saved to {csv_filename}")
-
-
-'''
-
-Generate without the csv file
-'''
-
-
-# input_folder = "mask_input"
-# output_folder = "output_rename"
-# custom_input = "rename"
-# csv_filename = "rename_log.csv"
-
-# rename_files(input_folder, output_folder, custom_input, csv_filename)
-
-
 # import os
 # import shutil
 # from datetime import datetime
+# import csv
 
 
 # def generate_unique_filename(custom_input, counter, original_filename):
@@ -79,27 +27,79 @@ Generate without the csv file
 #     return new_filename
 
 
-# def rename_files(input_folder, output_folder, custom_input):
+# def rename_files(input_folder, output_folder, custom_input, csv_filename):
 #     if not os.path.exists(output_folder):
 #         os.makedirs(output_folder)
 
-#     counter = 0
-#     for filename in os.listdir(input_folder):
-#         input_filepath = os.path.join(input_folder, filename)
-#         if os.path.isfile(input_filepath):
-#             new_filename = generate_unique_filename(
-#                 custom_input, counter, filename)
-#             output_filepath = os.path.join(output_folder, new_filename)
-#             shutil.copyfile(input_filepath, output_filepath)
-#             print(f"Renamed: {filename} -> {new_filename}")
-#             counter += 1
+#     counter = 1
+#     with open(csv_filename, 'w', newline='') as csvfile:
+#         csv_writer = csv.writer(csvfile)
+#         csv_writer.writerow(['Original Name', 'Final Name',
+#                             'Original Location', 'Final Location'])
+
+#         for filename in os.listdir(input_folder):
+#             input_filepath = os.path.join(input_folder, filename)
+#             if os.path.isfile(input_filepath):
+#                 new_filename = generate_unique_filename(
+#                     custom_input, counter, filename)
+#                 output_filepath = os.path.join(output_folder, new_filename)
+#                 shutil.copyfile(input_filepath, output_filepath)
+#                 print(f"Renamed: {filename} -> {new_filename}")
+#                 csv_writer.writerow(
+#                     [filename, new_filename, input_filepath, output_filepath])
+#                 counter += 1
 
 #     print(f"All files renamed and copied to {output_folder}")
+#     print(f"CSV log saved to {csv_filename}")
 
 
-# # Example usage:
-# input_folder = "mask_input"
-# output_folder = "output_rename"
-# custom_input = "suraj"
+# '''
 
-# rename_files(input_folder, output_folder, custom_input)
+# Generate without the csv file
+# '''
+
+
+# # input_folder = "mask_input"
+# # output_folder = "output_rename"
+# # custom_input = "rename"
+# # csv_filename = "rename_log.csv"
+
+# # rename_files(input_folder, output_folder, custom_input, csv_filename)
+
+
+import os
+import shutil
+from datetime import datetime
+
+
+def generate_unique_filename(custom_input, counter, original_filename):
+    current_time = datetime.now().strftime("%m%d%H%M%S")
+    filename, extension = os.path.splitext(original_filename)
+    new_filename = f"{custom_input}_{current_time}_{counter}{extension}"
+    return new_filename
+
+
+def rename_files(input_folder, output_folder, custom_input):
+    if not os.path.exists(output_folder):
+        os.makedirs(output_folder)
+
+    counter = 0
+    for filename in os.listdir(input_folder):
+        input_filepath = os.path.join(input_folder, filename)
+        if os.path.isfile(input_filepath):
+            new_filename = generate_unique_filename(
+                custom_input, counter, filename)
+            output_filepath = os.path.join(output_folder, new_filename)
+            shutil.copyfile(input_filepath, output_filepath)
+            print(f"Renamed: {filename} -> {new_filename}")
+            counter += 1
+
+    print(f"All files renamed and copied to {output_folder}")
+
+
+# Example usage:
+input_folder = r"C:\Users\suraj\Desktop\Number_plate_detection\bus_dataset_3_days_may"
+output_folder = r"C:\Users\suraj\Desktop\Number_plate_detection\bus_dataset_3_days_may\output"
+custom_input = "Mall_entrance"
+
+rename_files(input_folder, output_folder, custom_input)

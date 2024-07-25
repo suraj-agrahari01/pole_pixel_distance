@@ -11,6 +11,7 @@ def read_coordinates_from_file(file_name):
         for line in file:
             x, y = map(float, line.strip('\n').split(','))
             coordinates.append((x, y))
+            print(coordinates)
     return coordinates
 
 # Function to mask image based on coordinates
@@ -25,7 +26,7 @@ def mask_image(image, coordinates):
 
 
 # Create output directory if it doesn't exist
-output_dir = 'masked_images'
+output_dir = 'test_result'
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
@@ -33,7 +34,7 @@ if not os.path.exists(output_dir):
 coordinates = read_coordinates_from_file('coordinate_mask_file.txt')
 
 # Read and process images from folder
-input_folder = 'mask_input'
+input_folder = 'test'
 for filename in os.listdir(input_folder):
     if filename.endswith('.jpg') or filename.endswith('.png'):
         img_path = os.path.join(input_folder, filename)

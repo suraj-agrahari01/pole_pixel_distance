@@ -4,8 +4,8 @@ import cv2
 import os
 
 # Read the video from specified path
-video_path = "C:/Users/suraj/Desktop/pole_project/D01_20240416131406.mp4"
-output_folder = 'output'
+video_path = "Video_20240628121724174.avi"
+output_folder = 'fiber_folder'
 
 cam = cv2.VideoCapture(video_path)
 
@@ -33,13 +33,23 @@ while (True):
 
     if ret:
         # Checking if the current frame count is a multiple of the capture frequency
-        if current_frame % frame_capture_frequency == 0:
-            # Creating the image name
-            name = f'./{output_folder}/frame{current_frame}.jpg'
-            print('Creating...', name)
+        # if current_frame % frame_capture_frequency == 0:
+        #     # Creating the image name
+        #     name = f'./{output_folder}/elephant_f{current_frame}.jpg'
+        #     print('Creating...', name)
 
-            # Writing the extracted image
-            cv2.imwrite(name, frame)
+        #     # Writing the extracted image
+        #     cv2.imwrite(name, frame)
+
+        # # Incrementing the frame counter
+        # current_frame += 1
+
+        # Creating the image name
+        name = f'./{output_folder}/fiber{current_frame}.jpg'
+        print('Creating...', name)
+
+        # Writing the extracted image
+        cv2.imwrite(name, frame)
 
         # Incrementing the frame counter
         current_frame += 1

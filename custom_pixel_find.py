@@ -46,14 +46,22 @@ def click_event(event, x, y, flags, params):
             # Display the distance on the image
             midpoint = ((clicked_points[0][0] + clicked_points[1][0]) //
                         2, (clicked_points[0][1] + clicked_points[1][1]) // 2)
-            cv2.putText(img, f'pixel length: {distance:.2f}', midpoint,
+            cv2.putText(img, f'pixel length: {distance:.2f} ', midpoint,
                         cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
+
+            # Display the distance on the image
+            put_lenth = ((clicked_points[0][0] + clicked_points[1][0]) //
+                         2+50, (clicked_points[0][1] + clicked_points[1][1]) // 2 + 40)
+
+            cv2.putText(img, f'lenth : 8.99 m ', put_lenth,
+                        cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 0), 2)
 
             # Display both points
             cv2.putText(img, f'Point 1: {clicked_points[0]}', (
-                clicked_points[0][0], clicked_points[0][1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
+                clicked_points[0][0] - 100, clicked_points[0][1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
             cv2.putText(img, f'Point 2: {clicked_points[1]}', (
                 clicked_points[1][0], clicked_points[1][1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
+            cv2.imwrite('result.jpg', img)
 
             # Save the clicked points and distance to a file
             save_coordinates_to_file(
@@ -61,8 +69,7 @@ def click_event(event, x, y, flags, params):
 
 
 # Read the input image
-img = cv2.imread(
-    r'C:\Users\suraj\Desktop\pole_project\mask_testing\send\mask_img_segment.jpeg')
+img = cv2.imread('segment_result.jpeg')
 
 # # Resize the image
 # img = cv2.resize(img, (img.shape[1] // 1, img.shape[0] // 1))
